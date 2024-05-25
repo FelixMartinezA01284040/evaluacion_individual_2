@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Ejemplo para Evaluacion Individual No.2 MR3002b</title>
+    <style>
+        body {
+            font-family: 'Lato';
+            font-weight: 400;
+            font-size: 1.4rem;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="dist/css/styles.css">
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<!-- body onload="f_inicial()" -->
+
+<body>
+
+    <header id="header" class="mt-2 header-nav-menu header-nav-stripe">
+
+        <div class="row">
+            <div class="logo-container col-1 mt-2 ms-3">
+
+                <a href="#" class="logo" onclick="call_menu()">
+
+                    <img src="img/logo.png" width="75" height="75" alt="" />
+
+                </a>
+
+            </div>
+
+            <div class="col-3">
+
+            </div> 
+
+            <div class="col-2 ms-5">
+              <p>Sistema</p>
+            </div>    
+
+
+            <!-- start: header nav menu -->
+
+            <div class="col-4">
+
+                    <nav class="">
+
+                        <ul class="nav justify-content-end me-4" id="mainNav">
+
+                            <li id="back_to_index" style="">
+                                <a class="nav-link" onclick="call_alumnos()" style="cursor:pointer;">Alumnos
+                                </a>
+                            </li>
+
+                            <li id="back_to_main_window" style="">
+                                <a class="nav-link" onclick="call_sistema()" style="cursor:pointer;">Sistema
+                                </a>
+                            </li>
+
+                            <li id="back_to_main_window">
+                                <a class="nav-link active" onclick="call_laboratorio()" style="cursor:pointer;">Laboratorio
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    </nav>
+
+            </div>
+
+            <!-- end: header nav menu -->
+
+        </div>
+
+
+    </header>
+
+
+
+<div>
+    <!-- div>
+        <label for="balumno">Clic para ver datos de los alumnos:</label>
+        <button id="balumno" type="button" onclick="f_ajax_alumno()">Listar Alumnos</button>
+    </div -->
+</div>
+<hr>
+
+<div class="container-fluid">
+   <div id="" class="row">
+
+            <div id="alumno_sistema" class="col-3 justify-content-center ms-5" style="border: 1px solid gray;border-radius: 8px;height: 250px;">
+
+                  <div class="col-11">
+                    <div class = "field_bg">  
+                      <label id="alumno_lbl" class="tandem_lbl">Alumno</label>
+                    </div>
+                    <input type="number" id="idalumno_input" class="tandem_field" style="width:90%;">
+                  </div>
+
+                  <div class="col-11">
+                    <div class = "field_bg">  
+                      <label id="sistema_lbl" class="tandem_lbl">Sistema</label>
+                    </div>
+                    <input type="number" id="idsistema_input" class="tandem_field" style="width:90%;">
+                  </div>
+
+
+                  <div class="col-11">
+                    <div class = "field_bg">  
+                      <label class="tandem_lbl">Práctica</label>
+                    </div>
+                    <input type="number" id="practica_input" class="tandem_field" style="width:90%;">
+                  </div>                 
+
+
+
+                  <div class="row mt-3 mb-3 justify-content-around">  
+        
+                    <div class="col-3">
+                        <button id="" type="button" class="btn btn-secondary btn_hover" onclick="f_ajax_ingresar_laboratorio()">Ingresar</button>
+                   </div>
+
+                   <div class="col-3">
+                    <button id="" type="button" class="btn btn-secondary btn_hover" onclick="cancelar_ingresar_laboratorio()">Cancelar</button>
+                   </div>
+
+                 </div>
+
+
+            </div>
+
+
+
+            <div id="lista_alumnos" class="col-4" style="border:1px solid red"></div>
+            <div id="lista_sistemas" class="col-4" style="border:1px solid blue"></div>
+
+   </div>
+</div>
+
+
+<div class="container-fluid mt-5">
+    <div id="" class="row">
+ 
+             <div id="laboratorio" class="col-3 justify-content-center ms-5" style="border: 1px solid gray;border-radius: 8px;height: 250px;">
+ 
+                   <div class="col-11">
+                     <div class = "field_bg">  
+                       <label id="npractica_lbl" class="tandem_lbl"># Práctica</label>
+                     </div>
+                     <input type="number" id="npractica_input" class="tandem_field" style="width:90%;">
+                   </div>
+ 
+                   <div class="col-11">
+                     <div class = "field_bg">  
+                       <label id="grupo_lbl" class="tandem_lbl">Grupo</label>
+                     </div>
+                     <input type="number" id="grupo_input" class="tandem_field" style="width:90%;">
+                   </div>               
+ 
+ 
+                   <div class="row mt-3 mb-3 justify-content-around">  
+         
+                     <div class="col-3">
+                         <button id="" type="button" class="btn btn-secondary btn_hover" onclick="f_ajax_select_laboratorios_by_practica()">Buscar</button>
+                    </div>
+ 
+                    <div class="col-3">
+                     <button id="" type="button" class="btn btn-secondary btn_hover" onclick="f_ajax_select_laboratorios()">Cancelar</button>
+                    </div>
+ 
+                  </div>
+ 
+ 
+             </div>
+ 
+ 
+ 
+             <div id="lista_laboratorios" class="col-8"></div>
+ 
+    </div>
+ </div>
+ 
+
+
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/ajax_functions_laboratorio.js"></script>
+<script src="dist/js/urls.js"></script>
+
+</body>
+</html>

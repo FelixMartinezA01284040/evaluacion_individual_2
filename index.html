@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>Evaluacion Individual No.2 MR3002b</title>
+    <style>
+        body {
+            font-family: 'Lato';
+            font-weight: 400;
+            font-size: 1.4rem;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+    </style>
+
+    <link rel="stylesheet" href="dist/css/styles.css">
+
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<!-- body onload="f_inicial()" -->
+
+<body>
+
+    <header id="header" class="mt-2 header-nav-menu header-nav-stripe">
+
+        <div class="row">
+            <div class="logo-container col-1 mt-2 ms-3">
+
+                <a href="#" class="logo">
+
+                    <img src="img/logo.png" width="75" height="75" alt=""/>
+
+                </a>
+
+            </div>
+
+            <div class="col-3">
+
+            </div> 
+
+            <div class="col-2 ms-5">
+              <p>Menú Principal</p>
+            </div>    
+
+
+            <!-- start: header nav menu -->
+
+            <div class="col-4">
+
+                    <nav class="">
+
+                        <ul class="nav justify-content-end me-4" id="mainNav">
+
+                            <li id="back_to_index">
+                                <a class="nav-link" onclick="call_alumnos()" style="cursor:pointer;">Alumno
+                                </a>
+                            </li>
+
+                            <li id="back_to_main_window" style="">
+                                <a class="nav-link" onclick="call_sistema()" style="cursor:pointer;">Sistema
+                                </a>
+                            </li>
+
+                            <li id="back_to_main_window" style="">
+                                <a class="nav-link" onclick="call_laboratorio()" style="cursor:pointer;">Laboratorio
+                                </a>
+                            </li>
+
+
+                        </ul>
+
+                    </nav>
+
+            </div>
+
+            <!-- end: header nav menu -->
+
+        </div>
+
+
+    </header>
+
+
+
+<div>
+    <!-- div>
+        <label for="balumno">Clic para ver datos de los alumnos:</label>
+        <button id="balumno" type="button" onclick="f_ajax_alumno()">Listar Alumnos</button>
+    </div -->
+</div>
+<hr>
+
+
+
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="dist/js/urls.js"></script>
+
+</body>
+</html>
