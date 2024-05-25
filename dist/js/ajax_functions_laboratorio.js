@@ -66,8 +66,8 @@ function cancelar_ingresar_laboratorio(){
     $("#idsistema_input").val('');
     $("#practica_input").val('');
 
-    $("#alumno_lbl").val('Alumno');
-    $("#sistema_lbl").val('Sistema');           
+    $("#alumno_lbl").html('Alumno');
+    $("#sistema_lbl").html('Sistema');           
    
 }
 
