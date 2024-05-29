@@ -215,6 +215,13 @@ function f_ajax_edita_laboratorio(){
         return false;
     }
 
+    var cdatos = {
+        'cdatos':{
+        'idalumno': idalumno,
+        'idsistema': idsistema
+        }
+    }
+
     var datos = {
         'datos':{
         'idlab': idlab,
@@ -227,21 +234,45 @@ function f_ajax_edita_laboratorio(){
     //var datos = {matricula: matricula, nombre: nombre, grupo: grupo};
     $.ajax({
         method: "POST",
-        url: "srv/laboratorio/update_laboratorio.php",
-        data: datos
+        url: "srv/laboratorio/check_laboratorio.php",
+        data: cdatos
     })
-            .done(function (response) {                    
+            .done(function (response) { 
 
-                if (response){
-                    alert("SE EDITO EL LABORATORIO DE MANERA CORRECTA");
+                var obj_info = jQuery.parseJSON( response ); 
+                var count_info = Object.keys(obj_info).length; 
 
-                    $("#lista_laboratorios").html('');
-                    f_ajax_select_laboratorios();
-
+                if (obj_info['alumno'] == 0){
+                    alert("EL ALUMNO NO EXISTE");
+                    return false;
                 }
-                else{
-                    alert("EL LABORATORIO NO FUE EDITADO")
+
+                if (obj_info['sistema'] == 0){
+                    alert("El SISTEMA NO EXISTE")
+                    return false;
                 }
+
+                $.ajax({
+                    method: "POST",
+                    url: "srv/laboratorio/update_laboratorio.php",
+                    data: datos
+                })
+                        .done(function (response) {                    
+            
+                            if (response){
+                                alert("SE EDITO EL LABORATORIO DE MANERA CORRECTA");
+            
+                                $("#npractica_input").val('');
+                                $("#lista_laboratorios").html('');
+                                f_ajax_select_laboratorios();
+            
+                            }
+                            else{
+                                alert("EL LABORATORIO NO FUE EDITADO")
+                            }
+                        });
+
+                
             });
 }
 
@@ -260,5 +291,13 @@ var f_ajax_select_laboratorios_by_practica = function () {
 
                 $("#lista_laboratorios").html(response);
             });
+
+}
+
+function cancelar_select_laboratorios_by_practica(){
+
+    $("#npractica_input").val('');
+
+    f_ajax_select_laboratorios();
 
 }

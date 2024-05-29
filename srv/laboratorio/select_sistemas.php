@@ -44,9 +44,9 @@ $salida = clic_ajax_lsistema();
 
 
 <div class="row">    
-    <div class="col-3 center lbl_header"> Parámetro 1 </div>
-    <div class="col-3 center lbl_header"> Parámetro 2 </div>
-    <div class="col-3 center lbl_header"> Parámetro 3 </div>
+    <div class="col-3 center lbl_header"> Parám. 1 </div>
+    <div class="col-3 center lbl_header"> Parám. 2 </div>
+    <div class="col-3 center lbl_header"> Parám. 3 </div>
 </div>
 
 <div style="height:250px;overflow-x:hidden;overflow-y:scroll;">

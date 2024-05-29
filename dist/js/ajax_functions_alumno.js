@@ -26,6 +26,8 @@ function f_ajax_ingresar_alumno(){
         return false;
     }
 
+    var cmatricula = {'matricula': matricula};
+
     var datos = {
         'datos':{
         'matricula': matricula,
@@ -34,26 +36,41 @@ function f_ajax_ingresar_alumno(){
         }
     }
 
-    //var datos = {matricula: matricula, nombre: nombre, grupo: grupo};
+    
     $.ajax({
         method: "POST",
-        url: "srv/alumno/insert_alumno.php",
-        data: datos
+        url: "srv/alumno/check_matricula.php",
+        data: cmatricula
     })
-            .done(function (response) {                    
+            .done(function (response) {  
 
-                if (response){
-                    alert("SE INSERTO EL ALUMNO DE MANERA CORRECTA");
+                var obj_alumno_info = jQuery.parseJSON( response ); 
+                var count_alumno_info = Object.keys(obj_alumno_info).length; 
 
-                    $("#matricula_input").val('');
-                    $("#nombre_input").val('');
-                    $("#grupo_input").val('');
-
-                    f_ajax_select_alumnos();
-
-                }
-                else{
-                    alert("EL ALUMNO NO FUE INSERTADO")
+                if(count_alumno_info == 0){
+                    $.ajax({
+                        method: "POST",
+                        url: "srv/alumno/insert_alumno.php",
+                        data: datos
+                    })
+                            .done(function (response) {                    
+                
+                                if (response){
+                                    alert("SE INSERTO EL ALUMNO DE MANERA CORRECTA");
+                
+                                    $("#matricula_input").val('');
+                                    $("#nombre_input").val('');
+                                    $("#grupo_input").val('');
+                
+                                    f_ajax_select_alumnos();
+                
+                                }
+                                else{
+                                    alert("EL ALUMNO NO FUE INSERTADO")
+                                }
+                            });
+                }else{
+                    alert("LA MATRICULA YA EXISTE");
                 }
             });
 }
@@ -96,17 +113,13 @@ function f_ajax_edita_alumno_form(aux){
             .done(function (response) {      
 
                 $("#lista_alumnos").html(response);
-                
-                
+                              
                 $.ajax({
                     method: "POST",
                     url: "srv/alumno/get_alumno_info.php",
                     data: datos
                 })            
-
                 .done(function (alumno_info) {  
-
-                   // alert(alumno_info); 
 
                     var obj_alumno_info = jQuery.parseJSON( alumno_info ); 
                     var count_alumno_info = Object.keys(obj_alumno_info).length; 
@@ -125,9 +138,7 @@ function f_ajax_edita_alumno_form(aux){
 
                 });                            
                 
-
-            });   
-   
+            });    
 }
 
 function cancelar_edita_alumno(){
@@ -164,6 +175,8 @@ function f_ajax_edita_alumno(){
         return false;
     }
 
+    var cmatricula = {'matricula': matricula}
+
     var datos = {
         'datos':{
         'idalumno': idalumno,
@@ -176,20 +189,35 @@ function f_ajax_edita_alumno(){
     //var datos = {matricula: matricula, nombre: nombre, grupo: grupo};
     $.ajax({
         method: "POST",
-        url: "srv/alumno/update_alumno.php",
-        data: datos
+        url: "srv/alumno/check_matricula.php",
+        data: cmatricula
     })
-            .done(function (response) {                    
+            .done(function (response) {  
 
-                if (response){
-                    alert("SE EDITO EL ALUMNO DE MANERA CORRECTA");
+                var obj_alumno_info = jQuery.parseJSON( response ); 
+                var count_alumno_info = Object.keys(obj_alumno_info).length; 
 
-                    $("#lista_alumnos").html('');
-                    f_ajax_select_alumnos();
-
-                }
-                else{
-                    alert("EL ALUMNO NO FUE EDITADO")
+                if(count_alumno_info == 0){
+                    $.ajax({
+                        method: "POST",
+                        url: "srv/alumno/update_alumno.php",
+                        data: datos
+                    })
+                            .done(function (response) {                    
+                
+                                if (response){
+                                    alert("SE EDITO EL ALUMNO DE MANERA CORRECTA");
+                
+                                    $("#lista_alumnos").html('');
+                                    f_ajax_select_alumnos();
+                
+                                }
+                                else{
+                                    alert("EL ALUMNO NO FUE EDITADO")
+                                }
+                            });
+                }else{
+                    alert("LA MATRICULA YA EXISTE");
                 }
             });
 }

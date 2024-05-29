@@ -43,7 +43,7 @@
             </div> 
 
             <div class="col-2 ms-5">
-              <p>Sistema</p>
+              <p>Laboratorio</p>
             </div>    
 
 
@@ -55,17 +55,17 @@
 
                         <ul class="nav justify-content-end me-4" id="mainNav">
 
-                            <li id="back_to_index" style="">
+                            <li id="alumnos_window" style="">
                                 <a class="nav-link" onclick="call_alumnos()" style="cursor:pointer;">Alumnos
                                 </a>
                             </li>
 
-                            <li id="back_to_main_window" style="">
+                            <li id="sistema_window" style="">
                                 <a class="nav-link" onclick="call_sistema()" style="cursor:pointer;">Sistema
                                 </a>
                             </li>
 
-                            <li id="back_to_main_window">
+                            <li id="laboratorio_window">
                                 <a class="nav-link active" onclick="call_laboratorio()" style="cursor:pointer;">Laboratorio
                                 </a>
                             </li>
@@ -118,7 +118,7 @@
                     <div class = "field_bg">  
                       <label class="tandem_lbl">Práctica</label>
                     </div>
-                    <input type="number" id="practica_input" class="tandem_field" style="width:90%;">
+                    <input type="number" min="1" id="practica_input" class="tandem_field" style="width:90%;">
                   </div>                 
 
 
@@ -156,16 +156,8 @@
                      <div class = "field_bg">  
                        <label id="npractica_lbl" class="tandem_lbl"># Práctica</label>
                      </div>
-                     <input type="number" id="npractica_input" class="tandem_field" style="width:90%;">
+                     <input type="number" min="1" id="npractica_input" class="tandem_field" style="width:90%;">
                    </div>
- 
-                   <div class="col-11">
-                     <div class = "field_bg">  
-                       <label id="grupo_lbl" class="tandem_lbl">Grupo</label>
-                     </div>
-                     <input type="number" id="grupo_input" class="tandem_field" style="width:90%;">
-                   </div>               
- 
  
                    <div class="row mt-3 mb-3 justify-content-around">  
          
@@ -174,7 +166,7 @@
                     </div>
  
                     <div class="col-3">
-                     <button id="" type="button" class="btn btn-secondary btn_hover" onclick="f_ajax_select_laboratorios()">Cancelar</button>
+                     <button id="" type="button" class="btn btn-secondary btn_hover" onclick="cancelar_select_laboratorios_by_practica()">Cancelar</button>
                     </div>
  
                   </div>

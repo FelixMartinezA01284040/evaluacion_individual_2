@@ -1,6 +1,5 @@
 <?php
 
-
 function clic_ajax_lalumno()
 {
     try {
