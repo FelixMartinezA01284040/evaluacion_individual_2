@@ -1,7 +1,7 @@
 <?php
 
 
-function clic_ajax_lsistema()
+function f_ajax_lista_sistema()
 {
     try {
         $conn = new PDO("mysql:host=localhost;dbname=evaluacion_individual_2", "root", "");
@@ -38,7 +38,7 @@ function clic_ajax_lsistema()
     }
 }
 
-$salida = clic_ajax_lsistema();
+$salida = f_ajax_lista_sistema();
 
 ?>
 

@@ -1,6 +1,6 @@
 <?php
 
-function clic_ajax_lalumno()
+function f_ajax_lista_alumnos()
 {
     try {
         $conn = new PDO("mysql:host=localhost;dbname=evaluacion_individual_2", "root", "");
@@ -37,7 +37,7 @@ function clic_ajax_lalumno()
     }
 }
 
-$salida = clic_ajax_lalumno();
+$salida = f_ajax_lista_alumnos();
 
 ?>
 

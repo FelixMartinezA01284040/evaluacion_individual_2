@@ -2,7 +2,7 @@
 
 $npractica = $_POST['practica'];
 
-function clic_ajax_llaboratorio($npractica)
+function f_ajax_lista_laboratorio($npractica)
 {
     try {
         $conn = new PDO("mysql:host=localhost;dbname=evaluacion_individual_2", "root", "");
@@ -47,7 +47,7 @@ function clic_ajax_llaboratorio($npractica)
     }
 }
 
-$salida = clic_ajax_llaboratorio($npractica);
+$salida = f_ajax_lista_laboratorio($npractica);
 
 ?>
 
