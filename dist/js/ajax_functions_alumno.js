@@ -47,7 +47,7 @@ function f_ajax_ingresar_alumno(){
                 var obj_alumno_info = jQuery.parseJSON( response ); 
                 var count_alumno_info = Object.keys(obj_alumno_info).length; 
 
-                if(count_alumno_info == 0){
+                if( count_alumno_info == 0 ){
                     $.ajax({
                         method: "POST",
                         url: "srv/alumno/insert_alumno.php",
@@ -131,6 +131,8 @@ function f_ajax_edita_alumno_form(aux){
                        $("#nombre_updt").val(obj_alumno_info[0]['nombre']);
                        $("#grupo_updt").val(obj_alumno_info[0]['grupo']);
 
+                       matricula_aux = obj_alumno_info[0]['matricula'];
+
                     }else{
 
                         alert("ERROR AL DESPLEGAR INFORMACIÓN DE ALUMNO");
@@ -197,7 +199,7 @@ function f_ajax_edita_alumno(){
                 var obj_alumno_info = jQuery.parseJSON( response ); 
                 var count_alumno_info = Object.keys(obj_alumno_info).length; 
 
-                if(count_alumno_info == 0){
+                if((count_alumno_info == 0) || ( (count_alumno_info == 1) && ((matricula == matricula_aux)) ) ){
                     $.ajax({
                         method: "POST",
                         url: "srv/alumno/update_alumno.php",
